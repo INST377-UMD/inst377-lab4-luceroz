@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>INST377 - Lab 4</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body id="main" style="background-color:cornflowerblue;">
+        <h1 id="heading">INST377 - Lab 4</h1>
+        <div class="sec" id="alertSec">
+            <h2>Alerts</h2>
+            <form name="alert" onsubmit="alertName()">
+                <label for="name">Name: </label>
+                <input id="name" type="text" required>
+                <input id="alertBut" type="submit" value="Alert Me!">
+            </form>
+        </div>
+        <div class="sec" id="colorSec">
+            <h2>Color</h2>
+            <button type="button" onclick="changeColor()">Change Color</button>
+        </div>
+        <div class="sec" id="testSec">
+            <h2>Text Tester</h2>
+            <form name="valid" onsubmit="validate()">
+                <label for="text">Text Tester: </label>
+                <input id="text" type="text">
+                <input id="validateBut" type="submit" value="Validate Text">
+            </form>
+        </div>
+        <div class="sec" id="addSec">
+            <h2>Add Text</h2>
+            <button type="button" onclick="addText()">Add Text</button>
+        </div>
+        <script type="text/javascript">
+            function alertName(){
+                alert("Hi "+ document.getElementById("name").value);
+            }
+
+            function changeColor(){
+                if(document.body.style.backgroundColor == "cornflowerblue"){
+                    document.body.style.backgroundColor = "grey";
+                } else {
+                    document.body.style.backgroundColor = "cornflowerblue";
+                }
+            }
+            function validate(){
+                var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                if (validation.test(document.valid.text.value)){
+                    alert("Text input contains special characters!")
+                }
+            }
+            function addText(){
+                document.getElementById("heading").textContent = "INST377 - Lab 4 - Adding Text";
+            }
+        </script>
+    </body>
+</html>
