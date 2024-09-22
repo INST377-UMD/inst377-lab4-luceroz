@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body id="main" style="background-color:cornflowerblue;">
-        <h1>INST377 - Lab 4</h1>
+        <h1 id="heading">INST377 - Lab 4</h1>
         <div class="sec" id="alertSec">
             <h2>Alerts</h2>
             <form name="alert" onsubmit="alertName()">
@@ -19,15 +19,15 @@
         </div>
         <div class="sec" id="testSec">
             <h2>Text Tester</h2>
-            <form>
+            <form name="valid" onsubmit="validate()">
                 <label for="text">Text Tester: </label>
                 <input id="text" type="text">
-                <input id="validateBut" type="button" value="Validate Text">
+                <input id="validateBut" type="submit" value="Validate Text">
             </form>
         </div>
         <div class="sec" id="addSec">
             <h2>Add Text</h2>
-            <button type="button">Add Text</button>
+            <button type="button" onclick="addText()">Add Text</button>
         </div>
         <script type="text/javascript">
             function alertName(){
@@ -40,6 +40,15 @@
                 } else {
                     document.body.style.backgroundColor = "cornflowerblue";
                 }
+            }
+            function validate(){
+                var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                if (validation.test(document.valid.text.value)){
+                    alert("Text input contains special characters!")
+                }
+            }
+            function addText(){
+                document.getElementById("heading").textContent = "INST377 - Lab 4 - Adding Text";
             }
         </script>
     </body>
